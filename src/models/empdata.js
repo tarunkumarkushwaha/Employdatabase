@@ -1,8 +1,9 @@
 const express = require("express")
-
+const { default: mongoose } = require("mongoose")
+const {Schema} = mongoose
 const mangoose = require("mongoose")
 
-const empschema = new mangoose.Schema(
+const empschema = new Schema(
     {
         employeename:{
             type:String,
@@ -28,6 +29,6 @@ const empschema = new mangoose.Schema(
 )
 
 // creation of new collection 
-const Empdata = new mangoose.model("Empdata", empschema)
+const Empdata = mangoose.model("Empdata", empschema)
 
 module.exports = Empdata ;

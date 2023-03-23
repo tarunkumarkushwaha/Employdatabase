@@ -1,4 +1,5 @@
 const e = require("express");
+const { json } = require("express");
 const express = require("express");
 require("../src/db/connection");
 
@@ -29,6 +30,13 @@ app.post("/employdata", async (req, res) => {
 
    const val = await data.save()
    res.json(val)
+})
+
+// get handler 
+
+app.get("/getdata", async (req, res) => {
+   let value = await Empdata.find({})
+   res.send(value)
 })
 
 app.listen(port, () => {
